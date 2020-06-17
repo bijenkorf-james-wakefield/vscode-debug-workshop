@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App({ handleClick }) {
   return (
     <div className="App">
       <header className="App-header">
@@ -15,12 +15,17 @@ function App() {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleClick}
         >
-          Learn React
+          My Link
         </a>
       </header>
     </div>
   );
+}
+
+App.defaultProps = {
+  handleClick: () => { }
 }
 
 export default App;
