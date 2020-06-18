@@ -10,22 +10,22 @@ function getGreetingByHour(hour) {
     return (hour <= 12) ? GREETING_AM : GREETING_PM;
 }
 
-function isChristmas() {
-    const now = getDate();
-    return (now.getMonth() === '12' && now.getDate() === '25');
+function isChristmas(dateNow) {
+    return (dateNow.getMonth() === '12' && dateNow.getDate() === '25');
 }
 
 function greet(name) {
-    const now = getDate().getHours()
-    let greeting = getGreetingByHour(now);
-    if (isChristmas()) {
+    const now = getDate();
+    const currentHour = now.getHours()
+    let greeting = getGreetingByHour(currentHour);
+    if (isChristmas(now)) {
         greeting = FESTIVE_GREETING;
     }
     return `${greeting}, ${name}`;
 }
 
-const name = process.argv[2] || 'John';
+const inputName = process.argv[2] || 'John';
 
-const greeting = greet(name);
+const greeting = greet(inputName);
 
 console.log(greeting)
